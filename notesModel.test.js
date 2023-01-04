@@ -1,4 +1,4 @@
-const notesModel = require("./notesModel.js");
+const notesModel = require("./src/notesModel.js");
 
 beforeEach(() => {
   note = new notesModel();
