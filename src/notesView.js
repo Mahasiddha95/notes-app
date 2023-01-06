@@ -21,7 +21,7 @@ class NotesView {
 
     const addNoteButtonEl = document.querySelector('#add-note-button');
     addNoteButtonEl.addEventListener('click', this.handleAddNoteButtonClick.bind(this));
-  }
+  };
 
   handleAddNoteButtonClick(){
     // Get the value of the new note input
@@ -31,21 +31,25 @@ class NotesView {
     this.model.addNote(newNoteText)
     // Display the updated list of notes on the page
     this.displayNotes();
-  }
+  };
 
-  displayNotes(){
-    const notes = this.model.getNotes()
+  displayNotes() {
+  // 1. Remove all previous notes
+  document.querySelectorAll('.note').forEach(element => {
+    element.remove();
+  });
 
-    // For each note, create and append a new element on the main container
+  const notes = this.model.getNotes()
 
-      notes.forEach(note => {
-        const noteEl = document.createElement('div');
-        noteEl.textContent = note;
-        noteEl.className = 'note';
-        this.mainContainerEl.append(noteEl);
-      })
-  }
+  // For each note, create and append a new element on the main container
+  notes.forEach(note => {
+    const noteEl = document.createElement('div');
+    noteEl.textContent = note;
+    noteEl.className = 'note';
+    this.mainContainerEl.append(noteEl);
+  })
 }
+};
 
 
 module.exports = NotesView;

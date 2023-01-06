@@ -9,7 +9,16 @@
         <input type="text" id="new-note-input">
         <button id="add-note-button">Add note</button>
         <script type="text/javascript" src="bundle.js"></script>
+        </script>
+        <script>
+          document.getElementById('add-note-button').addEventListener('click', function() {
+            // Add new note here
+            // ...
 
+            // Reset input field
+            document.getElementById('new-note-input').value = '';
+          });
+        </script>
       </div>
    </body>
 </html>
